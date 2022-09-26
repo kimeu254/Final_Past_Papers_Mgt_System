@@ -42,6 +42,8 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2';
+
 export default{
     name:"createFaculty",
     data() {
@@ -55,6 +57,12 @@ export default{
     methods: {
         onSubmit() {
         this.$store.dispatch("newFaculty", this.faculty).then(() => {
+            this.$swal.fire({
+                icon: 'success',
+                title: 'Faculty has been uploaded',
+                showConfirmButton: false,
+                timer: 1500
+            })
             this.$router.push("/faculties")
         })
       },
