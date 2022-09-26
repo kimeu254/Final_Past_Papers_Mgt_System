@@ -1,9 +1,0 @@
---- 2022/09/20 - 19:54 (7131)
-[19:54:52] Timer shaderInit: avg 0.10ms freq 0/s load 100.00% cur 0.10ms max 0.10ms
-[19:54:52] Timer shaderInit: avg 0.12ms freq 0/s load 0.03% cur 0.12ms max 0.12ms
-[19:54:52] Timer shaderInit: avg 0.08ms freq 0/s load 0.05% cur 0.08ms max 0.12ms
-[19:54:52] Timer shaderInit: avg 0.09ms freq 0/s load 0.68% cur 0.09ms max 0.12ms
-[19:54:52] Timer shaderInit: avg 0.10ms freq 0/s load 0.20% cur 0.10ms max 0.12ms
-[19:54:53] Timer shaderInit: avg 0.07ms freq 0/s load 0.01% cur 0.07ms max 0.12ms
-[19:54:53] Timer shaderInit: avg 0.07ms freq 0/s load 0.47% cur 0.07ms max 0.12ms
-[19:55:08] Timer shaderInit: avg 0.08ms freq 0/s load 0.00% cur 0.08ms max 0.12ms
