@@ -1,0 +1,70 @@
+<template>
+    <div class="container">
+        <h1>Units</h1>
+        <div class="d-flex align-items-end flex-column bd-highlight mb-3">
+            <router-link to="/createUnit">
+                <button class="btn btn-outline-success ">
+                    &plus; Add Unit
+                </button>
+            </router-link>
+        </div>
+  
+        <div class="table-responsive">
+            <table class="table table-hover align-middle bg-white" id="example">
+                <thead class="bg-light">
+                    <tr>
+                        <th>#ID</th>
+                        <th>Name</th>
+                        <th>Course</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="unit in units" :key="unit.id">
+                        <td>{{ unit.id }}</td>
+                        <td>{{ unit.name }}</td>
+                        <td>
+                            <span v-if="courses.length > 0" v-for="course in courses" :key="course.id"><span v-if="course.id == unit.course_id">{{ course.name }}</span></span>
+                            <span v-else>No Course</span>
+                        </td>
+                        <td>{{ unit.status }}</td>
+                        <td>
+                            <div class="d-flex flex-row">
+                                <div>
+                                    <button type="button" class="btn btn-outline-info"><i class="bi bi-pencil"></i></button>
+                                </div>
+                                <div class="px-2">
+                                    <button @click="deleteCourse(unit.id)" type="button" class="btn btn-outline-danger pl-2"><i class="bi bi-trash"></i></button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+  </template>
+  
+<script>
+import { mapGetters } from 'vuex';
+  
+  
+export default{
+    name: "units",
+    data() {
+        return{}
+    },
+    computed: {
+        ...mapGetters(["units", "courses"])
+    },
+    created() {
+        this.$store.dispatch("getUnits")
+        },
+    methods: {
+        deleteCourse(id) {
+            this.$store.dispatch("removeUnit", id)
+        },
+    }, 
+  }
+  </script>
