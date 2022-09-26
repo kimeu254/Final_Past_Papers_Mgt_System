@@ -4,6 +4,7 @@ import auth from '@/store/auth'
 import faculties from '@/store/faculties'
 import courses from '@/store/courses'
 import units from '@/store/units'
+import units from '@/store/uploads'
 
 const store = createStore({
     plugins:[
@@ -14,6 +15,7 @@ const store = createStore({
         faculties,
         courses,
         units,
+        uploads
     }
 })
 

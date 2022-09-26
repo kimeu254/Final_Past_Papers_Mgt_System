@@ -8,6 +8,10 @@
                 </button>
             </router-link>
         </div>
+
+        <div>
+
+        </div>
     </div>
 </template>
 <script>
@@ -16,11 +20,7 @@ import axios from 'axios'
 export default {
         data() {
             return {
-                name: '',
-                file: '',
-                title: '',
-                unit_id: '',
-                success: ''
+                
             };
         },
         computed: {
