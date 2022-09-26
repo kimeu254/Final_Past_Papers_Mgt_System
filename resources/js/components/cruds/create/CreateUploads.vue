@@ -27,7 +27,12 @@
                                 <label class="form-label" for="form3Example1q">Units<span class="text-danger">*</span></label>
                             </div>
 
-                            <button class="btn btn-primary btn-block" type="submit">Upload</button>
+                            <div class="d-flex justify-content-end">
+                                <router-link to="/uploads">
+                                    <button type="submit" class="btn btn-light btn-lg">Cancel</button>
+                                </router-link>
+                                <button type="submit" class="btn btn-success btn-lg ms-2">Save Changes</button>
+                            </div>
 
                         </form>
                     </div>
@@ -68,6 +73,7 @@ export default {
             axios.post('/api/upload', data)
                 .then(function (res) {
                     existingObj.success = res.data.success;
+                    this.$router.push("/uploads")
             })
                 .catch(function (err) {
                     existingObj.output = err;

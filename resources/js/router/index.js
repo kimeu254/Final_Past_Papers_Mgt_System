@@ -23,6 +23,7 @@ const createCourse = () => import('@/components/cruds/create/CreateCourse.vue')
 const createUnit = () => import('@/components/cruds/create/CreateUnit.vue')
 const createUser = () => import('@/components/cruds/create/CreateUser.vue')
 const Uploads = () => import('@/components/Uploads.vue')
+const createUploads = () => import('@/components/cruds/create/CreateUploads.vue')
 
 
 const routes = [
@@ -65,6 +66,14 @@ const routes = [
                 component: Uploads,
                 meta: {
                     title: `Uploads`
+                }
+            },
+            {
+                name: "createUploads",
+                path: '/createUploads',
+                component: createUploads,
+                meta: {
+                    title: `createUploads`
                 }
             },
             {

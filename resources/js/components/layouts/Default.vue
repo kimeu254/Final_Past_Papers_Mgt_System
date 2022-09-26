@@ -21,6 +21,9 @@
                     <router-link :to="{name:'units'}" class="list-group-item list-group-item-action py-4 ripple"><i
                         class="fas fa-chart-line fa-fw me-3"></i><span>Units</span>
                     </router-link>
+                    <router-link :to="{name:'uploads'}" class="list-group-item list-group-item-action py-4 ripple"><i
+                        class="fas fa-upload fa-fw me-3"></i><span>Uploads</span>
+                    </router-link>
                     </div>
                 </div>
             </nav>
