@@ -70,6 +70,12 @@ export default{
     methods: {
         onSubmit() {
         this.$store.dispatch("newCourse", this.course).then(() => {
+            this.$swal.fire({
+                icon: 'success',
+                title: 'Course has been uploaded',
+                showConfirmButton: false,
+                timer: 1500
+            })
             this.$router.push("/courses")
         })
       },

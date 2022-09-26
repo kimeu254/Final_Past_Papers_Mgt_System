@@ -54,6 +54,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import Swal from 'sweetalert2';
 
 export default{
     name:"createUnit",
@@ -72,6 +73,12 @@ export default{
     methods: {
         onSubmit() {
         this.$store.dispatch("newUnit", this.unit).then(() => {
+            this.$swal.fire({
+                icon: 'success',
+                title: 'Unit has been uploaded',
+                showConfirmButton: false,
+                timer: 1500
+            })
             this.$router.push("/units")
         })
       },
