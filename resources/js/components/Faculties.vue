@@ -86,6 +86,7 @@
 <script>
 import axios from 'axios';
 import { mapGetters } from 'vuex';
+import Swal from 'sweetalert2';
 
 export default {
     name:"faculties",
@@ -108,7 +109,38 @@ export default {
         this.$store.dispatch("newFaculty", this.faculty)
       },
       deleteFaculty(id) {
-        this.$store.dispatch("removeFaculty", id)
+        this.$swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((response)=>{
+                if (response.isConfirmed){
+                    this.$store.dispatch("removeFaculty", id)
+                    this.$swal.fire(
+                        {
+                            title: 'Deleted!',
+                            text: 'Your file has been deleted.',
+                            icon: 'success',
+                            showConfirmButton: false,
+                            timer: 1500
+                        }
+                    )
+                } else if (
+                    response.dismiss === Swal.DismissReason.cancel
+                ) {
+                    this.$swal.fire({
+                        title: 'Canceled',
+                        text: 'Your imaginary file is safe :)',
+                        icon: 'error',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
       },
       async editFaculty(id) {
         //this.$store.dispatch("updateFaculty", this.faculty)
