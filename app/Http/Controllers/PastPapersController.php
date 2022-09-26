@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Auth;
 
 class PastPapersController extends Controller
 {
+    public function index()
+    {
+        return PastPapers::all();
+    }
+
     public function upload(Request $request){
             
         $request->validate([
