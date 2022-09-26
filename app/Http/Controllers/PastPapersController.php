@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\PastPapers;
 use \Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class PastPapersController extends Controller
 {
@@ -26,7 +27,8 @@ class PastPapersController extends Controller
 
         if($request->file()) {
             $file_name = time().'_'.$request->file->getClientOriginalName();
-            $file_path = $request->file('file')->storeAs('uploads', $file_name, 'public');
+            $file_path = $request->file('file')->move(public_path(), $file_name);
+            // die($file_name);
 
             $fileUpload->name = time().'_'.$request->file->getClientOriginalName();
             $fileUpload->path = '/storage/' . $file_path;

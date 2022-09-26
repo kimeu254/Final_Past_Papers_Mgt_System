@@ -9,13 +9,17 @@
             </router-link>
         </div>
 
-        <div>
-
+        <div v-for="upload in uploads" :key="upload.id">
+            <!-- <img :src="'/uploads/'+upload.name" alt=""> -->
+            <a :href="'/uploads/'+upload.name" @click.prevent="download(upload.name, upload.title)"><h1>{{upload.title}}</h1></a>
+            
+            
         </div>
     </div>
 </template>
+
 <script>
-import axios from 'axios'
+import { mapGetters } from 'vuex';
 
 export default {
         data() {
@@ -24,10 +28,32 @@ export default {
             };
         },
         computed: {
-
+            ...mapGetters(["uploads"])
+        },
+        created() {
+            this.$store.dispatch("getUploads")
         },
         methods: {
-
+            forceFileDownload(response, title) {
+                console.log(title)
+                const url = window.URL.createObjectURL(new Blob([response.data]))
+                const link = document.createElement('a')
+                link.href = url
+                link.setAttribute('download', title)
+                document.body.appendChild(link)
+                link.click()
+                },
+            download(url, title) {
+                axios({
+                    method: 'get',
+                    url,
+                    responseType: 'arraybuffer',
+                })
+                    .then((response) => {
+                    this.forceFileDownload(response, title)
+                    })
+                    .catch(() => console.log('error occured'))
+            },
         }
 }
 </script>
