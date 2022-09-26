@@ -24,6 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/upload', [PastPapersController::class, 'upload']);
+Route::get('/uploads', [[PastPapersController::class, 'index']]);
 
 
 Route::get('/faculties', [FacultiesController::class, 'index']);
