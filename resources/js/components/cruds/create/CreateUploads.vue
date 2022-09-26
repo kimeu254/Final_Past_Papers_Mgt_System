@@ -73,8 +73,10 @@ export default {
             axios.post('/api/upload', data)
                 .then(function (res) {
                     existingObj.success = res.data.success;
+                })
+                .then(() => {
                     this.$router.push("/uploads")
-            })
+                })
                 .catch(function (err) {
                     existingObj.output = err;
             });
