@@ -7,6 +7,9 @@ export default {
     getters: {
         faculties(state) {
             return state.faculties
+        },
+        facultiesCount(state) {
+            return state.faculties.length
         }
     },
     actions: {

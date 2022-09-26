@@ -7,6 +7,9 @@ export default {
     getters: {
         courses(state) {
             return state.courses
+        },
+        coursesCount(state) {
+            return state.courses.length
         }
     },
     actions: {

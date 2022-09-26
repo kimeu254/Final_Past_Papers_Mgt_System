@@ -7,6 +7,9 @@ export default {
     getters: {
         units(state) {
             return state.units
+        },
+        unitsCount(state) {
+            return state.units.length
         }
     },
     actions: {
