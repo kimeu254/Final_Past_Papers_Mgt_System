@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container" v-if="user.role_id == 2">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
@@ -27,11 +27,16 @@
                                 <label class="form-label" for="form3Example1q">Units<span class="text-danger">*</span></label>
                             </div>
 
+                            <div class="mb-4">
+                                <input type="number" class="form-control" v-model="exam_year">
+                                <label for="exam_year" class="form-label">Exam Year</label>
+                            </div>
+
                             <div class="d-flex justify-content-end">
                                 <router-link to="/uploads">
-                                    <button type="submit" class="btn btn-light btn-lg">Cancel</button>
+                                    <button type="submit" class="btn btn-light">Cancel</button>
                                 </router-link>
-                                <button type="submit" class="btn btn-success btn-lg ms-2">Save Changes</button>
+                                <button type="submit" class="btn btn-success ms-2">Save Changes</button>
                             </div>
 
                         </form>
@@ -53,8 +58,10 @@ export default {
             file: '',
             title: '',
             unit_id: '',
-            success: ''
-        };
+            exam_year: '',
+            success: '',
+            user:this.$store.state.auth.user
+        }
     },
     computed: {
         ...mapGetters(["units"])
@@ -70,6 +77,7 @@ export default {
             data.append('file', this.file);
             data.append('title', this.title);
             data.append('unit_id', this.unit_id);
+            data.append('exam_year', this.exam_year);
             axios.post('/api/upload', data)
                 .then(function (res) {
                     existingObj.success = res.data.success;

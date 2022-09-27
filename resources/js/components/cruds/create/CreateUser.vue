@@ -1,5 +1,5 @@
 <template>
-    <div class="h-100 h-custom">
+    <div class="h-100 h-custom" v-if="user.role_id === 1">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-lg-8 col-xl-6">
@@ -93,7 +93,8 @@
                 password_confirmation:""
             },
             validationErrors:{},
-            processing:false
+            processing:false,
+            user:this.$store.state.auth.user
         }
     },
     computed: {

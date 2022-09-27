@@ -1,5 +1,6 @@
 <template>
-    <div class="container" v-if="user.role_id === 1">
+    <div class="container">
+
         <div class="row">
             <div class="col-12 mt-3 mb-1">
                 <h5 class="text-uppercase">Minimal Statistics Cards</h5>
@@ -70,21 +71,6 @@
         </div>
     
     </div>
-    <div class="container" v-else>
-        <div class="row">
-            <div class="col-12 mt-3 mb-1">
-                <h5 class="text-uppercase">Minimal Statistics Cards</h5>
-                <p>You are logged in as <b>{{user.email}}</b></p>
-            </div>
-        </div>
-        <div>
-            <div v-for="upload in uploads" :key="upload.id">
-            <a :href="'/uploads/'+upload.name" @click.prevent="download(upload.name, upload.title)">
-                <p>{{upload.title}} {{ upload.exam_year}}</p>
-            </a>
-        </div>
-        </div>
-    </div>
 </template>
 
 <script>
@@ -97,29 +83,7 @@ export default {
         }
     },
     computed: {
-        ...mapGetters(["facultiesCount", "coursesCount", "unitsCount", "usersCount", "uploads"])
-    },
-    methods: {
-            forceFileDownload(response, title) {
-                console.log(title)
-                const url = window.URL.createObjectURL(new Blob([response.data]))
-                const link = document.createElement('a')
-                link.href = url
-                link.setAttribute('download', title)
-                document.body.appendChild(link)
-                link.click()
-                },
-            download(url, title) {
-                axios({
-                    method: 'get',
-                    url,
-                    responseType: 'arraybuffer',
-                })
-                    .then((response) => {
-                    this.forceFileDownload(response, title)
-                    })
-                    .catch(() => console.log('error occured'))
-            },
-        }
+        ...mapGetters(["facultiesCount", "coursesCount", "unitsCount", "usersCount"])
+    }
 }
 </script>

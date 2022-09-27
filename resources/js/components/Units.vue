@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container" v-if="user.role_id === 1">
         <h1>Units</h1>
         <div class="d-flex align-items-end flex-column bd-highlight mb-3">
             <router-link to="/createUnit">
@@ -53,7 +53,9 @@ import Swal from 'sweetalert2';
 export default{
     name: "units",
     data() {
-        return{}
+        return{
+            user:this.$store.state.auth.user
+        }
     },
     computed: {
         ...mapGetters(["units", "courses"])

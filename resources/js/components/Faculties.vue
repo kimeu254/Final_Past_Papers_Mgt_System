@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container" v-if="user.role_id === 1">
         <h1>Faculties</h1>
         <div class="d-flex align-items-end flex-column bd-highlight mb-3">
             <router-link to="/createFaculty">
@@ -95,7 +95,8 @@ export default {
           faculty: {
             name: '',
             status: '',
-          }
+          },
+          user:this.$store.state.auth.user
         }
     },
     computed: {

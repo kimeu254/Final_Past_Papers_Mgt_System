@@ -21,6 +21,7 @@ class PastPapersController extends Controller
            'file' => 'required|mimes:jpg,jpeg,png,csv,txt,xlx,xls,pdf|max:2048',
            'title' => 'required',
            'unit_id' => 'required',
+           'exam_year' => 'required',
         ]);
 
         $fileUpload = new PastPapers();
@@ -35,6 +36,7 @@ class PastPapersController extends Controller
             $fileUpload->title = $request->title;
             $fileUpload->unit_id = $request->unit_id;
             $fileUpload->user_id = Auth::user()->id;
+            $fileUpload->exam_year = $request->exam_year;
             $fileUpload->save();
 
             return response()->json(['success'=>'File uploaded successfully.']);

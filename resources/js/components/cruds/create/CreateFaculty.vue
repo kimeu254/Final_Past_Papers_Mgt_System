@@ -1,5 +1,5 @@
 <template>
-    <div class="h-100 h-custom">
+    <div class="h-100 h-custom" v-if="user.role_id === 1">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-lg-8 col-xl-6">
@@ -26,9 +26,9 @@
 
                     <div class="d-flex justify-content-end">
                         <router-link to="/faculties">
-                            <button type="submit" class="btn btn-light btn-lg">Cancel</button>
+                            <button type="submit" class="btn btn-light">Cancel</button>
                         </router-link>
-                        <button type="submit" class="btn btn-success btn-lg ms-2">Save Changes</button>
+                        <button type="submit" class="btn btn-success ms-2">Save Changes</button>
                     </div>
 
                     </form>
@@ -52,6 +52,7 @@ export default{
                 name: '',
                 status: '',
             },
+            user:this.$store.state.auth.user
         }
     },
     methods: {

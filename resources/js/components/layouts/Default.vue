@@ -6,22 +6,25 @@
             <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
                 <div class="position-sticky">
                     <div class="list-group list-group-flush mx-3 mt-5">
+                    <!-- <router-link :to="{name:'admin'}" class="list-group-item list-group-item-action py-4 ripple" aria-current="true" v-if="user.role_id === 1">
+                        <i class="fas fa-th-large fa-fw me-3"></i><span>Dashboard</span>
+                    </router-link> -->
                     <router-link :to="{name:'dashboard'}" class="list-group-item list-group-item-action py-4 ripple" aria-current="true">
                         <i class="fas fa-th-large fa-fw me-3"></i><span>Dashboard</span>
                     </router-link>
-                    <router-link :to="{name:'users'}" class="list-group-item list-group-item-action py-4 ripple"><i
+                    <router-link :to="{name:'users'}" class="list-group-item list-group-item-action py-4 ripple" v-if="user.role_id === 1"><i
                         class="fas fa-users fa-fw me-3"></i><span>Users</span>
                     </router-link>
-                    <router-link :to="{name:'faculties'}"  class="list-group-item list-group-item-action py-4 ripple">
+                    <router-link :to="{name:'faculties'}"  class="list-group-item list-group-item-action py-4 ripple" v-if="user.role_id === 1">
                         <i class="fas fa-university fa-fw me-3"></i><span>Faculties</span>
                     </router-link>
-                    <router-link :to="{name:'courses'}"  class="list-group-item list-group-item-action py-4 ripple"><i
+                    <router-link :to="{name:'courses'}"  class="list-group-item list-group-item-action py-4 ripple" v-if="user.role_id === 1"><i
                         class="fas fa fa-graduation-cap me-3"></i><span>Courses</span>
                     </router-link>
-                    <router-link :to="{name:'units'}" class="list-group-item list-group-item-action py-4 ripple"><i
+                    <router-link :to="{name:'units'}" class="list-group-item list-group-item-action py-4 ripple" v-if="user.role_id === 1"><i
                         class="fas fa-chart-line fa-fw me-3"></i><span>Units</span>
                     </router-link>
-                    <router-link :to="{name:'uploads'}" class="list-group-item list-group-item-action py-4 ripple"><i
+                    <router-link :to="{name:'uploads'}" class="list-group-item list-group-item-action py-4 ripple" v-if="user.role_id === 2"><i
                         class="fas fa-upload fa-fw me-3"></i><span>Uploads</span>
                     </router-link>
                     </div>
@@ -77,7 +80,7 @@
             <router-view></router-view>
         </main>
 
-        <footer class="text-center text-dark bg-light">
+        <footer class="text-center text-dark bg-light fixed-bottom">
           <div class="text-center p-3">© 2022 Copyright:
             <a class="">JIMMY MUTISO</a>
           </div>

@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container" v-if="user.role_id == 2">
         <h1>Uploads</h1>
         <div class="d-flex align-items-end flex-column bd-highlight mb-3">
             <router-link to="/createUploads">
@@ -10,10 +10,9 @@
         </div>
 
         <div v-for="upload in uploads" :key="upload.id">
-            <!-- <img :src="'/uploads/'+upload.name" alt=""> -->
-            <a :href="'/uploads/'+upload.name" @click.prevent="download(upload.name, upload.title)"><h1>{{upload.title}}</h1></a>
-            
-            
+            <a :href="'/uploads/'+upload.name" @click.prevent="download(upload.name, upload.title)">
+                <p>{{upload.title}} {{ upload.exam_year}}</p>
+            </a>
         </div>
     </div>
 </template>
@@ -24,7 +23,7 @@ import { mapGetters } from 'vuex';
 export default {
         data() {
             return {
-                
+                user:this.$store.state.auth.user
             };
         },
         computed: {

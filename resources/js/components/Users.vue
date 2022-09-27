@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container" v-if="user.role_id === 1">
         <h1>Users</h1>
         <div class="d-flex align-items-end flex-column bd-highlight mb-3">
             <router-link to="/createUser">
@@ -55,7 +55,9 @@ import Swal from 'sweetalert2';
 export default{
     name: "users",
     data() {
-        return{}
+        return{
+            user:this.$store.state.auth.user
+        }
     },
     computed: {
         ...mapGetters(["users", "roles"])
