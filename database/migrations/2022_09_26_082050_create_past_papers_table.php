@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('path')->nullable();
             $table->string('title')->nullable();
+            $table->year('exam_year')->nullable();
             $table->unsignedBigInteger('user_id')->index()->nullable();
             $table->unsignedBigInteger('unit_id')->index()->nullable();
             $table->foreign('user_id')

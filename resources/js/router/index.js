@@ -17,7 +17,7 @@ const Faculties = () => import('@/components/Faculties.vue')
 const Courses = () => import('@/components/Courses.vue')
 const Units = () => import('@/components/Units.vue')
 const Users = () => import('@/components/Users.vue')
-const editFaculty = () => import('@/components/cruds/edit/EditFaculty.vue')
+// const editFaculty = () => import('@/components/cruds/edit/EditFaculty.vue')
 const createFaculty = () => import('@/components/cruds/create/CreateFaculty.vue')
 const createCourse = () => import('@/components/cruds/create/CreateCourse.vue')
 const createUnit = () => import('@/components/cruds/create/CreateUnit.vue')
@@ -108,15 +108,15 @@ const routes = [
                     title: `createFaculty`
                 }
             },
-            {
-                name: "editFaculty",
-                path: '/editFaculty/:id',
-                component: editFaculty,
-                params: true,
-                meta: {
-                    title: `editFaculty`
-                }
-            },
+            // {
+            //     name: "editFaculty",
+            //     path: '/editFaculty/:id',
+            //     component: editFaculty,
+            //     params: true,
+            //     meta: {
+            //         title: `editFaculty`
+            //     }
+            // },
             {
                 name: "courses",
                 path: '/courses',

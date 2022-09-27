@@ -15,5 +15,6 @@ class PastPapers extends Model
         'title',
         'user_id',
         'unit_id',
+        'exam_year'
     ]; 
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\PastPapersController;
 use App\Http\Controllers\UnitsController;
 use App\Http\Controllers\FacultiesController;
 use App\Http\Controllers\CoursesController;
+use App\Http\Controllers\NewUsersController;
 
 
 /*
@@ -22,6 +23,12 @@ use App\Http\Controllers\CoursesController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/roles', [NewUsersController::class, 'roles']);
+Route::get('/users', [NewUsersController::class, 'index']);
+Route::post('/user', [NewUsersController::class, 'create']);
+Route::delete('/user/{id}',[NewUsersController::class,'destroy']);
+
 
 Route::post('/upload', [PastPapersController::class, 'upload']);
 Route::get('/uploads', [PastPapersController::class, 'index']);

@@ -29,7 +29,7 @@
                                         <li v-for="(value, key) in validationErrors" :key="key">{{ value[0] }}</li>
                                     </ul>
                                 </div>
-                            </div>
+                        </div>
 
                         <div class="mb-4">
                             <input type="text" v-model="user.first_name" name="name" id="first_name" class="form-control">

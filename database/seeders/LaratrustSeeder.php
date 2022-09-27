@@ -67,7 +67,8 @@ class LaratrustSeeder extends Seeder
                     'first_name' => ucwords(str_replace('_', ' ', $key)),
                     'last_name' => ucwords(str_replace('_', ' ', $key)),
                     'email' => $key.'@app.com',
-                    'password' => bcrypt('password')
+                    'password' => bcrypt('password'),
+                    'role_id' => $role->id,
                 ]);
                 $user->attachRole($role);
                 $user->permissions()->sync($permissions);

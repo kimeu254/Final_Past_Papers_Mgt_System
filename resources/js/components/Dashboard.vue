@@ -16,7 +16,7 @@
                     <i class="fas fa-users text-info fa-3x"></i>
                 </div>
                 <div class="text-end">
-                    <h3>278</h3>
+                    <h3>{{ usersCount }}</h3>
                     <p class="mb-0">Users</p>
                 </div>
                 </div>
@@ -84,7 +84,7 @@ export default {
         }
     },
     computed: {
-        ...mapGetters(["facultiesCount", "coursesCount", "unitsCount"])
+        ...mapGetters(["facultiesCount", "coursesCount", "unitsCount", "usersCount"])
     }
 }
 </script>
