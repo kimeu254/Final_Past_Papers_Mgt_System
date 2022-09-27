@@ -2,7 +2,7 @@
     <div class="container" v-if="user.role_id === 1">
         <div class="row">
             <div class="col-12 mt-3 mb-1">
-                <h5 class="text-uppercase">Minimal Statistics Cards</h5>
+                <h5 class="text-uppercase">Dashboard</h5>
                 <p>You are logged in as <b>{{user.email}}</b></p>
             </div>
         </div>
@@ -80,7 +80,11 @@
         <div>
             <div v-for="upload in uploads" :key="upload.id">
             <a :href="'/uploads/'+upload.name" @click.prevent="download(upload.name, upload.title)">
-                <p>{{upload.title}} {{ upload.exam_year}}</p>
+                <p>{{upload.title}} 
+                    <span v-if="units.length > 0" v-for="unit in units" :key="unit.id"><span v-if="unit.id == upload.unit_id">{{ unit.name }}</span></span>
+                    <span v-else>No Course</span>
+                    {{ upload.exam_year}}
+                </p>
             </a>
         </div>
         </div>
@@ -97,7 +101,7 @@ export default {
         }
     },
     computed: {
-        ...mapGetters(["facultiesCount", "coursesCount", "unitsCount", "usersCount", "uploads"])
+        ...mapGetters(["facultiesCount", "coursesCount", "unitsCount", "usersCount", "uploads", "units"])
     },
     methods: {
             forceFileDownload(response, title) {

@@ -83,6 +83,12 @@ export default {
                     existingObj.success = res.data.success;
                 })
                 .then(() => {
+                    this.$swal.fire({
+                        icon: 'success',
+                        title: 'Exam has been uploaded',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
                     this.$router.push("/uploads")
                 })
                 .catch(function (err) {
