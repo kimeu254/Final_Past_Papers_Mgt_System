@@ -18,7 +18,7 @@ class PastPapersController extends Controller
     public function upload(Request $request){
             
         $request->validate([
-           'file' => 'required|mimes:jpg,jpeg,png,csv,txt,xlx,xls,pdf|max:2048',
+           'file' => 'required|mimes:csv,txt,xlx,xls,pdf|max:2048',
            'title' => 'required',
            'unit_id' => 'required',
            'exam_year' => 'required',
