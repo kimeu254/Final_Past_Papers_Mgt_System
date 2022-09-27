@@ -1,6 +1,6 @@
 <template>
     <div class="container" v-if="user.role_id == 2">
-        <h1>Uploads</h1>
+        <h2>Uploads</h2>
         <div class="d-flex align-items-end flex-column bd-highlight mb-3">
             <router-link to="/createUploads">
                 <button class="btn btn-outline-success ">

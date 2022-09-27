@@ -2,8 +2,8 @@
     <div class="container" v-if="user.role_id === 1">
         <div class="row">
             <div class="col-12 mt-3 mb-1">
-                <h5 class="text-uppercase">Dashboard</h5>
-                <p>You are logged in as <b>{{user.email}}</b></p>
+                <h4 class="text-uppercase">Dashboard</h4>
+                <p class="py-3">You are logged in as <b>{{user.email}}</b></p>
             </div>
         </div>
         <div class="row">
@@ -68,12 +68,13 @@
             </div>
         </div>
         </div>
+        
     
     </div>
     <div class="container" v-else>
         <div class="row">
             <div class="col-12 mt-3 mb-1">
-                <h5 class="text-uppercase">Minimal Statistics Cards</h5>
+                <h3 class="text-uppercase">Dashboard</h3>
                 <p>You are logged in as <b>{{user.email}}</b></p>
             </div>
         </div>
