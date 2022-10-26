@@ -19,6 +19,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "mdi-icons": "^1.0.1",
         "@vitejs/plugin-vue": "^3.0.1",
         "vue-loader": "^17.0.0",
         "vue-router": "^4.1.3",

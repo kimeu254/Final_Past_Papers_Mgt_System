@@ -16,9 +16,6 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
-        <!-- MDB -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css" rel="stylesheet"/>
-        <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&family=Rampart+One&display=swap" rel="stylesheet">
         @vite(['resources/js/app.js'])
     </head>
     <body style="background: white">
@@ -26,6 +23,4 @@
             <router-view></router-view>
         </div>
     </body>
-    <!-- MDB -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"></script>
 </html>
