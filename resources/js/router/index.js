@@ -18,6 +18,10 @@ const Courses = () => import('@/components/Courses.vue')
 const Units = () => import('@/components/Units.vue')
 const Users = () => import('@/components/Users.vue')
 const editFaculty = () => import('@/components/cruds/edit/EditFaculty.vue')
+const EditCourse = () => import('@/components/cruds/edit/EditCourse.vue')
+const EditUnit = () => import('@/components/cruds/edit/EditUnit.vue')
+const EditUploads = () => import('@/components/cruds/edit/EditUploads.vue')
+const EditUser = () => import('@/components/cruds/edit/EditUser.vue')
 const createFaculty = () => import('@/components/cruds/create/CreateFaculty.vue')
 const createCourse = () => import('@/components/cruds/create/CreateCourse.vue')
 const createUnit = () => import('@/components/cruds/create/CreateUnit.vue')
@@ -77,6 +81,15 @@ const routes = [
                 }
             },
             {
+                name: "editUploads",
+                path: '/editUploads/:id',
+                component: EditUploads,
+                params: true,
+                meta: {
+                    title: `editUploads`
+                }
+            },
+            {
                 name: "users",
                 path: '/users',
                 component: Users,
@@ -90,6 +103,15 @@ const routes = [
                 component: createUser,
                 meta: {
                     title: `createUser`
+                }
+            },
+            {
+                name: "editUser",
+                path: '/editUser/:id',
+                component: EditUser,
+                params: true,
+                meta: {
+                    title: `editUser`
                 }
             },
             {
@@ -134,6 +156,15 @@ const routes = [
                 }
             },
             {
+                name: "editCourse",
+                path: '/editCourse/:id',
+                component: EditCourse,
+                params: true,
+                meta: {
+                    title: `editCourse`
+                }
+            },
+            {
                 name: "units",
                 path: '/units',
                 component: Units,
@@ -147,6 +178,15 @@ const routes = [
                 component: createUnit,
                 meta: {
                     title: `createUnit`
+                }
+            },
+            {
+                name: "editUnit",
+                path: '/editUnit/:id',
+                component: EditUnit,
+                params: true,
+                meta: {
+                    title: `editUnit`
                 }
             },
         ]

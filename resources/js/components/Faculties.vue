@@ -28,7 +28,7 @@
                             <div class="d-flex flex-row">
                                 <div>
                                 <router-link :to="{name: 'editFaculty', params: {id: faculty.id}}">
-                                    <button type="button" class="btn btn-outline-info"><i class="bi bi-pencil"></i>Edit</button>
+                                    <button type="button" class="btn btn-outline-info"><i class="bi bi-pencil"></i></button>
                                 </router-link>
 
                                 </div>

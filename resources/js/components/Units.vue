@@ -32,7 +32,10 @@
                         <td>
                             <div class="d-flex flex-row">
                                 <div>
-                                    <button type="button" class="btn btn-outline-info"><i class="bi bi-pencil"></i></button>
+                                    <router-link :to="{name: 'editUnit', params: {id: unit.id}}">
+                                        <button type="button" class="btn btn-outline-info"><i class="bi bi-pencil"></i>
+                                        </button>
+                                    </router-link>
                                 </div>
                                 <div class="px-2">
                                     <button @click="deleteCourse(unit.id)" type="button" class="btn btn-outline-danger pl-2"><i class="bi bi-trash"></i></button>

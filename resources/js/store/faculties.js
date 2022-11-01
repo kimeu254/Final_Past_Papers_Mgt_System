@@ -55,11 +55,9 @@ export default {
             })
         },
         EDIT_FACULTY(state, faculty) {
-            const index = state.faculties.findIndex(f => f.id === faculty.id)
+            const index = state.faculties.find(f => f.id === faculty.id)
 
-            if(index >= 0) {
-                state.faculties.splice(index, 1, faculty)
-            }
+            
         }
     },
 }

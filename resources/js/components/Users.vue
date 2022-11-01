@@ -2,11 +2,9 @@
     <div class="container" v-if="user.role_id === 1">
         <h2>Users</h2>
         <div class="d-flex align-items-end flex-column bd-highlight mb-3">
-            <router-link to="/createUser">
                 <button class="btn btn-outline-success ">
                     &plus; Add New User
                 </button>
-            </router-link>
         </div>
   
         <div class="table-responsive">
@@ -34,7 +32,10 @@
                         <td>
                             <div class="d-flex flex-row">
                                 <div>
-                                    <button type="button" class="btn btn-outline-info"><i class="bi bi-pencil"></i></button>
+                                    <router-link :to="{name: 'editUser', params: {id: user.id}}">
+                                        <button type="button" class="btn btn-outline-info"><i class="bi bi-pencil"></i>
+                                        </button>
+                                    </router-link>
                                 </div>
                                 <div class="px-2">
                                     <button @click="deleteUser(user.id)" type="button" class="btn btn-outline-danger pl-2"><i class="bi bi-trash"></i></button>
