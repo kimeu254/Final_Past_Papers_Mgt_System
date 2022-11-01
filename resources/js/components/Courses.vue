@@ -1,7 +1,7 @@
 <template>
     <div class="container" v-if="user.role_id === 1">
         <h2>Courses</h2>
-        <div class="d-flex align-items-end flex-column bd-highlight mb-3">
+        <div class="d-flex align-items-end flex-column bd-highlight mb-5">
             <router-link to="/createCourse">
                 <button class="btn btn-outline-success">
                     &plus; Add Course
@@ -9,7 +9,7 @@
             </router-link>
         </div>
         <div class="table-responsive">
-            <table class="table table-hover align-middle bg-white" id="example">
+            <table class="table table-hover align-middle bg-white" id="datatable">
                 <thead class="bg-light">
                     <tr>
                     <th>ID</th>
@@ -63,8 +63,18 @@ export default{
         ...mapGetters(["courses", "faculties"])
     },
     created() {
-        this.$store.dispatch("getCourses")
-        },
+        this.$store.dispatch("getCourses").then(() => {
+            $('#datatable').DataTable()
+        })
+    },
+    watch: {
+        courses(val) {
+            $('#datatable').DataTable().destroy();
+            this.$nextTick(()=> {
+                $('#datatable').DataTable()
+            });
+        }
+    },
     methods: {
         deleteCourse(id) {
             this.$swal.fire({

@@ -1,7 +1,7 @@
 <template>
     <div class="container" v-if="user.role_id == 2">
         <h2>Uploads</h2>
-        <div class="d-flex align-items-end flex-column bd-highlight mb-3">
+        <div class="d-flex align-items-end flex-column bd-highlight mb-5">
             <router-link to="/createUploads">
                 <button class="btn btn-outline-success ">
                     &plus; Upload Exam
@@ -10,7 +10,7 @@
         </div>
 
         <div class="table-responsive">
-            <table class="table table-hover align-middle bg-white" id="example">
+            <table class="table table-hover align-middle bg-white" id="datatable">
                 <thead class="bg-light">
                     <tr>
                         <th>Title</th>
@@ -64,7 +64,17 @@ export default {
             ...mapGetters(["uploads", "units"])
         },
         created() {
-            this.$store.dispatch("getUploads")
+            this.$store.dispatch("getUploads").then(() => {
+                $('#datatable').DataTable()
+            })
+        },
+        watch: {
+            uploads(val) {
+                $('#datatable').DataTable().destroy();
+                this.$nextTick(()=> {
+                    $('#datatable').DataTable()
+                });
+            }
         },
         methods: {
             forceFileDownload(response, title) {

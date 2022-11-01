@@ -1,14 +1,14 @@
 <template>
     <div class="container" v-if="user.role_id === 1">
         <h2>Users</h2>
-        <div class="d-flex align-items-end flex-column bd-highlight mb-3">
+        <div class="d-flex align-items-end flex-column bd-highlight mb-5">
                 <button class="btn btn-outline-success ">
                     &plus; Add New User
                 </button>
         </div>
   
         <div class="table-responsive">
-            <table class="table table-hover align-middle bg-white" id="example">
+            <table class="table table-hover align-middle bg-white" id="datatable">
                 <thead class="bg-light">
                     <tr>
                         <th>#ID</th>
@@ -64,8 +64,18 @@ export default{
         ...mapGetters(["users", "roles"])
     },
     created() {
-        this.$store.dispatch("getUsers")
+        this.$store.dispatch("getUsers").then(() => {
+            $('#datatable').DataTable()
+        })
         this.$store.dispatch("getRoles")
+    },
+    watch: {
+        users(val) {
+            $('#datatable').DataTable().destroy();
+            this.$nextTick(()=> {
+                $('#datatable').DataTable()
+            });
+        }
     },
     methods: {
         deleteUser(id) {

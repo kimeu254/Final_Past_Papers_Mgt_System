@@ -153,6 +153,7 @@ links.forEach((link)=> {
         this.classList.add('active')
     })
 })
+
 export default {
     name:"default-layout",
     data(){

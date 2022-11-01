@@ -79,7 +79,7 @@
             </div>
         </div>
         <div class="table-responsive">
-            <table class="table table-hover align-middle bg-white" id="example">
+            <table class="table table-hover align-middle bg-white" id="datatable">
                 <thead class="bg-light">
                     <tr>
                         <th>Title</th>
@@ -117,6 +117,19 @@ export default {
     },
     computed: {
         ...mapGetters(["facultiesCount", "coursesCount", "unitsCount", "usersCount", "uploads", "units"])
+    },
+    created() {
+        this.$store.dispatch("getUploads").then(() => {
+            $('#datatable').DataTable()
+        })
+    },
+    watch: {
+        uploads(val) {
+            $('#datatable').DataTable().destroy();
+            this.$nextTick(()=> {
+                $('#datatable').DataTable()
+            });
+        }
     },
     methods: {
             forceFileDownload(response, title) {
