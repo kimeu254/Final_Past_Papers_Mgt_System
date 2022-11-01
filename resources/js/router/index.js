@@ -108,15 +108,15 @@ const routes = [
                     title: `createFaculty`
                 }
             },
-            // {
-            //     name: "editFaculty",
-            //     path: '/editFaculty/:id',
-            //     component: editFaculty,
-            //     params: true,
-            //     meta: {
-            //         title: `editFaculty`
-            //     }
-            // },
+            {
+                name: "editFaculty",
+                path: '/editFaculty/:id',
+                component: editFaculty,
+                params: true,
+                meta: {
+                    title: `editFaculty`
+                }
+            },
             {
                 name: "courses",
                 path: '/courses',
