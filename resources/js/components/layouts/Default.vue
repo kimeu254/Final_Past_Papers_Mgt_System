@@ -131,7 +131,7 @@
             <main class="content-wrapper">
                 <router-view></router-view>
             </main>
-            <footer class="footer">
+            <footer class="footer container" style="background: whitesmoke;">
                 <div class="d-sm-flex justify-content-center justify-content-sm-between">
                     <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2022</span>
                     <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Open <a href="https://github.com/kimeu254" target="_blank">Source</a> available on github</span>
