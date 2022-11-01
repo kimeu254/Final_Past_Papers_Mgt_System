@@ -30,7 +30,7 @@
             <span class="nav-link"></span>
           </li>
           <li class="nav-item menu-items">
-            <router-link :to="{name:'dashboard'}" class="nav-link"  aria-current="true">
+            <router-link :to="{name:'dashboard'}" class="nav-link" aria-current="true">
                 <span class="menu-icon">
                 <i class="mdi mdi-view-dashboard"></i>
               </span>
@@ -144,12 +144,22 @@
 
 <script>
 import {mapActions} from 'vuex'
+
+const links = document.querySelectorAll(".nav-item");
+
+links.forEach((link)=> {
+    link.addEventListener("click", function(){
+        links.forEach((e)=> {e.classList.remove('active')})
+        this.classList.add('active')
+    })
+})
 export default {
     name:"default-layout",
     data(){
         return {
             user:this.$store.state.auth.user,
             isActive: false,
+            active: false
         }
     },
     methods:{
@@ -170,6 +180,9 @@ export default {
             else {
                 myBody.classList.toggle('sidebar-icon-only')
             }
+        },
+        myFilter() {
+          this.isActive = !this.isActive;
         }
     }
 }
