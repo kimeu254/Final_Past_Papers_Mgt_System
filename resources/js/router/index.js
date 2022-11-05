@@ -25,7 +25,7 @@ const EditUser = () => import('@/components/cruds/edit/EditUser.vue')
 const createFaculty = () => import('@/components/cruds/create/CreateFaculty.vue')
 const createCourse = () => import('@/components/cruds/create/CreateCourse.vue')
 const createUnit = () => import('@/components/cruds/create/CreateUnit.vue')
-const createUser = () => import('@/components/cruds/create/CreateUser.vue')
+//const createUser = () => import('@/components/cruds/create/CreateUser.vue')
 const Uploads = () => import('@/components/Uploads.vue')
 const createUploads = () => import('@/components/cruds/create/CreateUploads.vue')
 
@@ -97,14 +97,14 @@ const routes = [
                     title: `Users`
                 }
             },
-            {
-                name: "createUser",
-                path: '/createUser',
-                component: createUser,
-                meta: {
-                    title: `createUser`
-                }
-            },
+            // {
+            //     name: "createUser",
+            //     path: '/createUser',
+            //     component: createUser,
+            //     meta: {
+            //         title: `createUser`
+            //     }
+            // },
             {
                 name: "editUser",
                 path: '/editUser/:id',
